@@ -1,0 +1,62 @@
+div.content-list.col-md-8
+    div.row.list-header
+        div.col-md-4.col-sm-5.col-xs-4= "Size"
+        div.col-md-3.col-sm-4.col-xs-4= "Looks Like"
+        div.col-md-3.col-sm-3.col-xs-4= "Price"
+        div.col-md-2.hidden-sm.hidden-xs= "Quantity"
+
+    div.list
+        each item in items
+            div.row.ac-item(data-id=item.id, data-period=item.time, data-price=item.price, class=item.customClass)
+                div.col-md-4.col-sm-5.main-info(class=item.image ? "col-xs-4" : "col-xs-8")
+                    p.item-size= item.size
+                    p.item-description!= item.description
+
+                div.col-md-3.col-sm-4.col-xs-4.item-image-container
+                    if (item.image)
+                        img.item-image(src= item.image)
+
+                div.col-md-3.col-sm-3.col-xs-4
+                    span.item-price= item.priceString
+
+                div.col-md-2.col-sm-12.col-xs-12
+                    div.input-group.quantity
+                        span.input-group-btn
+                            button.btn.btn-default.btn-number.minus-button(type="button")
+                                span.glyphicon.glyphicon-minus
+
+                        input.form-control.input-number(type="text", value="0", min="0", max="50")
+
+                        span.input-group-btn
+                            button.btn.btn-default.btn-number.plus-button(type="button")
+                                span.glyphicon.glyphicon-plus
+
+
+    div.row(style="margin-top: 100px")
+        div.col-md-6
+            p.delivery-date-title= "Delivery, Installation Day & Time"
+            div.row
+                div.col-md-6
+                    div.input-group.date.delivery-date
+                        input.form-control(type="text")
+                        span.input-group-addon
+                            span.glyphicon.glyphicon-calendar
+                div.col-md-6
+                    div.input-group.date.delivery-time
+                        input.form-control(type="text")
+                        span.input-group-addon
+                            span.glyphicon.glyphicon-calendar
+
+        div.col-md-6
+            p.pickup-date-title= "Pick Up Day & Time"
+            div.row
+                div.col-md-6
+                    div.input-group.date.pickup-date
+                        input.form-control(type="text")
+                        span.input-group-addon
+                            span.glyphicon.glyphicon-calendar
+                div.col-md-6
+                    div.input-group.date.pickup-time
+                        input.form-control(type="text")
+                        span.input-group-addon
+                            span.glyphicon.glyphicon-calendar

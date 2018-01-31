@@ -1,0 +1,64 @@
+div.appointment.col-md-8(style="display:none")
+    div.container
+        form.form-horizontal.appointment-form(role="form", data-toggle="validator")
+            div.form-group
+                label.col-md-4.control-label(for="firstName")= "First Name"
+                div.col-md-7
+                    input.form-control#firstName(type="text", data-error="Required field", required)
+
+            div.form-group
+                label.col-md-4.control-label(for="lastName")= "Last Name"
+                div.col-md-7
+                    input.form-control#lastName(type="text", data-error="Required field", required)
+
+            div.form-group
+                label.col-md-4.control-label(for="email")= "E-mail"
+                div.col-md-7
+                    input.form-control#email(type="email", data-error="Invalid e-mail address", required)
+                    div.help-block.with-errors
+
+            div.form-group
+                label.col-md-4.control-label(for="phone")= "Phone Number"
+                div.col-md-5
+                    input.form-control#phone(type="text", data-error="Required field", required)
+                    div.help-block.with-errors
+
+            br
+
+            div.form-group
+                label.col-md-4.control-label(for="address")= "Address"
+                div.col-md-7
+                    input.form-control#address(type="text", data-error="Required field", required)
+
+            div.form-group
+                label.col-md-4.control-label(for="city")= "City"
+                div.col-md-7
+                    input.form-control#city(type="text", data-error="Required field", required)
+
+            div.form-group
+                label.col-md-4.control-label(for="state")= "State"
+                div.col-md-7
+                    select.form-control#state
+                        each state in states
+                            option= state
+
+            div.form-group
+                label.col-md-4.control-label(for="zip")= "Zip"
+                div.col-md-3
+                    input.form-control#zip(type="text", data-error="Required field", required)
+                    div.help-block.with-errors
+
+            br
+            br
+
+            div.form-group(style="margin-bottom: 25px")
+                label.col-md-4.control-label(for="commentary")= "Commentary"
+                div.col-md-7
+                    input.form-control#commentary
+
+            div.form-group
+                label.col-md-4.control-label.promo-label(for="promo")= "Promotion Code"
+                div.col-md-3
+                    input.form-control#promo(type="text")
+                div.col-md-3
+                    button.ac-button.apply-promo-button(style="height: 35px; width: 100%")= "Apply"

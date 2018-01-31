@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "username": "guest",
+    "password": "guest"
+  },
+
+  "database": {
+    "name": "ac_for_rent",
+    "username": "root",
+    "password": "test",
+
+    "options": {
+      "host": "127.0.0.1",
+      "dialect": "mysql",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+      }
+    }
+  },
+
+  "stripe": {
+    "public-key": "",
+    "secret-key": ""
+  },
+
+  "mailer": {
+    "server": {
+      "host": "smtp.mail.ru",
+      "port": 465,
+      "secure": true,
+      "auth": {
+        "user": "",
+        "pass": ""
+      }
+    },
+
+    "options": {
+      "from": "'AC for Rent' <fadil.mamedov@mail.ru>",
+      "to": "fadil.mamedov@gmail.com",
+      "subject": "New order"
+    }
+  }
+}

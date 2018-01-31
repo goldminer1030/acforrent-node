@@ -1,0 +1,40 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+
+        title= "ACforRent.com — Rent an Air Conditioner With Free Delivery, Installation And Pick Up!"
+
+        link(href="https://fonts.googleapis.com/css?family=Montserrat:400,700", rel="stylesheet")
+
+        link(rel="stylesheet", href="public/build/libs.css")
+        link(rel="stylesheet", href="public/build/bundle.css")
+
+
+        script(src="https://checkout.stripe.com/checkout.js", class="stripe-button",
+               data-key="pk_test_AiAee2LzD5vMhIJVT12sZzrX", data-amount="999",
+               data-name="ACforRent", data-description="Checkout",
+               data-locale="auto", data-label="Place Order")
+    body
+        span.public-key(style="display: none")= publicKey
+
+        section.ac-for-rent
+            include templates/header.pug
+            include templates/steps.pug
+
+            div.content
+                include templates/content-title.pug
+
+                div.row
+                    include templates/content-list.pug
+                    include templates/appointment.pug
+                    include templates/billing.pug
+                    include templates/total.pug
+
+
+            include templates/footer.pug
+
+
+        script(type="text/javascript", src="public/build/libs.js")
+        script(type="text/javascript", src="public/build/bundle.js")

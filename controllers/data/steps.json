@@ -1,0 +1,5 @@
+[
+  { "active": true,  "name": "Step 1", "className": "step-1", "title": "Select Your Air Conditioners" },
+  { "active": false, "name": "Step 2", "className": "step-2", "title": "Appointment Details" },
+  { "active": false, "name": "Step 3", "className": "step-3", "title": "Billing Details" }
+]

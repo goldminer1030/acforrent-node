@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>ACforRent.com — Rent an Air Conditioner With Free Delivery, Installation And Pick Up!</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="libs/bootstrap/datetimepicker.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <section class="ac-for-rent">
+            <header class="header row">
+                <div class="col-md-3">
+                    <div class="logo">
+                        <a href="#"> <span class="star">★</span> ACforRent </a>
+                    </div>
+                </div>
+                <div class="col-md-offset-1 col-md-6">
+                    <nav class="navigation">
+                        <a href="/howitworks"> How it works </a>
+                        <a href="/why"> Why ACforRent </a>
+                        <a href="/about"> About Us </a>
+                    </nav>
+                </div>
+            </header>
+
+            <div class="row bs-wizard" style="border-bottom:0;">
+                <div class="col-md-3 col-sm-4 col-xs-4 bs-wizard-step step-1 active">
+                    <div class="text-center bs-wizard-stepnum">Step 1</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="#" class="bs-wizard-dot"></a>
+                    <div class="bs-wizard-info text-center">Select Your Air Conditioners</div>
+                </div>
+
+                <div class="col-md-3 col-sm-4 col-xs-4 bs-wizard-step step-2 disabled">
+                    <div class="text-center bs-wizard-stepnum">Step 2</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="#" class="bs-wizard-dot"></a>
+                    <div class="bs-wizard-info text-center">Appointment Details</div>
+                </div>
+
+                <div class="col-md-3 col-sm-4 col-xs-4 bs-wizard-step step-3 disabled">
+                    <div class="text-center bs-wizard-stepnum">Step 3</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="#" class="bs-wizard-dot"></a>
+                    <div class="bs-wizard-info text-center">Billing Details</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="title">
+                    <span class="action">Choose AC’s to Rent</span>
+                    <span class="description">All Options Include Delivery, Install & Pickup.</span>
+                    <br>
+                    <span class="price-description">The price depends on the rental term</span>
+                </div>
+
+                <div class="row">
+                    <div class="content-list col-md-8">
+                        <div class="row list-header">
+                            <div class="col-md-4 col-sm-5 col-xs-4">
+                                Size
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                Looks Like
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-4">
+                                Price
+                            </div>
+                                <div class="col-md-2 hidden-sm hidden-xs">
+                                Quantity
+                            </div>
+                        </div>
+
+                        <div class="list"></div>
+
+                        <div class="row" style="margin-top: 100px">
+                            <div class="col-md-6">
+                                <p class="delivery-date-title">Delivery, Installation Day & Time</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group date delivery-date">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group date delivery-time">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p class="pickup-date-title">Pick Up Day & Time</p>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group date pickup-date">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group date pickup-time">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="appointment col-md-8" style="display: none;">
+                        <div class="container">
+                            <form class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="form-group">
+                                    <label for="firstName" class="col-md-4 control-label">First Name</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="firstName" data-error="Required field" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lastName" class="col-md-4 control-label">Last Name</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="lastName" data-error="Required field" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="col-md-4 control-label">E-mail</label>
+                                    <div class="col-md-7">
+                                        <input type="email" class="form-control" id="email" data-error="Empty or invalid e-mail address" required>
+                                        <div class="help-block with-errors" style="font-size: 12px"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone" class="col-md-4 control-label">Phone Number</label>
+                                    <div class="col-md-5">
+                                        <input type="tel" class="form-control" id="phone" data-error="Empty or invalid phone number" required>
+                                        <div class="help-block with-errors" style="font-size: 12px"></div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="form-group">
+                                    <label for="address" class="col-md-4 control-label">Address</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="address" data-error="Requried field" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city" class="col-md-4 control-label">City</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="city" data-error="Required field" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="state" class="col-md-4 control-label">State</label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" id="state">
+                                            <option>Alabama</option>
+                                            <option>Alaska</option>
+                                            <option>American Samoa</option>
+                                            <option>Arizona</option>
+                                            <option>Arkansas</option>
+                                            <option>California</option>
+                                            <option>Colorado</option>
+                                            <option>Connecticut</option>
+                                            <option>Delaware</option>
+                                            <option>District Of Columbia</option>
+                                            <option>Federated States Of Micronesia</option>
+                                            <option>Florida</option>
+                                            <option>Georgia</option>
+                                            <option>Guam</option>
+                                            <option>Hawaii</option>
+                                            <option>Idaho</option>
+                                            <option>Illinois</option>
+                                            <option>Indiana</option>
+                                            <option>Iowa</option>
+                                            <option>Kansas</option>
+                                            <option>Kentucky</option>
+                                            <option>Louisiana</option>
+                                            <option>Maine</option>
+                                            <option>Marshall Islands</option>
+                                            <option>Maryland</option>
+                                            <option>Massachusetts</option>
+                                            <option>Michigan</option>
+                                            <option>Minnesota</option>
+                                            <option>Mississippi</option>
+                                            <option>Missouri</option>
+                                            <option>Montana</option>
+                                            <option>Nebraska</option>
+                                            <option>Nevada</option>
+                                            <option>New Hampshire</option>
+                                            <option>New Jersey</option>
+                                            <option>New Mexico</option>
+                                            <option>New York</option>
+                                            <option>North Carolina</option>
+                                            <option>North Dakota</option>
+                                            <option>Northern Mariana Islands</option>
+                                            <option>Ohio</option>
+                                            <option>Oklahoma</option>
+                                            <option>Oregon</option>
+                                            <option>Palau</option>
+                                            <option>Pennsylvania</option>
+                                            <option>Puerto Rico</option>
+                                            <option>Rhode Island</option>
+                                            <option>South Carolina</option>
+                                            <option>South Dakota</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Utah</option>
+                                            <option>Vermont</option>
+                                            <option>Virgin Islands</option>
+                                            <option>Virginia</option>
+                                            <option>Washington</option>
+                                            <option>West Virginia</option>
+                                            <option>Wisconsin</option>
+                                            <option>Wyomin</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="zip" class="col-md-4 control-label">Zip</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" id="zip" data-error="Required field" required>
+                                        <div class="help-block with-errors" style="font-size: 12px"></div>
+                                    </div>
+                                </div>
+
+                                <br><br>
+
+                                <div class="form-group">
+                                    <label for="promo" class="col-md-4 control-label promo-label">Promotion Code</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" id="promo">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 total-container">
+                        <div class="total">
+                            <div class="total-items">
+                                <p>Items</p>
+                                <div class="list"></div>
+                            </div>
+
+                            <div class="total-price">
+                                <p>Total</p> <p class="price"></p>
+                            </div>
+
+                            <button class="ac-button next-button">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <nav class="navigation">
+                    <a href="/howitworks"> How it works </a>
+                    <a href="/why"> Why ACforRent </a>
+                    <a href="/about"> About Us </a>
+                </nav>
+
+                <p class="footer-info">
+                    ACforRent © 2017
+                </p>
+            </footer>
+        </section>
+
+        <div class="row ac-item" id="itemTemplate" style="display: none">
+            <div class="col-md-4 col-sm-5 col-xs-4 main-info">
+                <p class="item-size"></p>
+                <p class="item-description"></p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4 item-image-container">
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4">
+                <span class="item-price"></span>
+            </div>
+            <div class="col-md-2 col-sm-12 col-xs-12">
+                <div class="input-group quantity">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-number minus-button" type="button">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </span>
+
+                    <input class="form-control input-number" type="text" value="0" min="0" max="50">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default btn-number plus-button" type="button">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript" src="libs/js.cookie.js"></script>
+        <script type="text/javascript" src="libs/moment.min.js"></script>
+        <script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="libs/jquery/jquery.sticky.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/datetimepicker.min.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/validator.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>

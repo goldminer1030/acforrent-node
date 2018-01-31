@@ -1,0 +1,8 @@
+div.row.bs-wizard(style="border-bottom: 0")
+    each step in steps
+        div.col-md-3.col-sm-4.col-xs-4.bs-wizard-step(class=step.active ? "active" : "disabled", class=step.className)
+            div.text-center.bs-wizard-stepnum= step.name
+            div.progress
+                div.progress-bar
+            a.bs-wizard-dot(href="#")
+            div.bs-wizard-info.text-center= step.title

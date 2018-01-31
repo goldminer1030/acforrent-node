@@ -1,0 +1,365 @@
+@import "steps.less";
+@import "elements.less";
+
+* {
+    outline: none !important;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.ac-for-rent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    div.logo {
+        margin-top: -10px;
+        white-space: nowrap;
+
+        a {
+            color: #1c89c8;
+            font-size: 36px;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .star {
+            display: inline-block;
+            padding-top: 4px;
+            color: #b71234;
+            font-size: 30px;
+            vertical-align: top;
+        }
+    }
+
+    .header {
+        padding: 28px 45px;
+
+        .navigation {
+            white-space: nowrap;
+        }
+    }
+
+    .content {
+        font-family: Montserrat, sans-serif;
+
+        .title {
+            margin-top: 45px;
+            margin-left: 40px;
+            margin-bottom: 45px;
+
+            .action {
+                font-size: 36px;
+                font-weight: bold;
+            }
+
+            .description {
+                margin-left: 30px;
+                color: #797979;
+                font-size: 18px;
+            }
+
+            .price-description, .review-description {
+                font-size: 18px;
+            }
+        }
+
+        .content-list {
+            padding: 40px 65px 40px 30px;
+            border: 2px solid #bababa;
+            border-radius: 5px;
+            font-family: Montserrat, sans-serif;
+            font-size: 18px;
+
+            .ac-item {
+                margin-top: 25px;
+
+                &.install-margin {
+                    margin-top: 70px;
+                }
+
+                &.remove-margin {
+                    margin-bottom: 70px;
+                }
+
+                .item-size {
+                    margin-bottom: 0;
+                    font-size: 24px;
+                    font-weight: bold
+                }
+
+                .item-price {
+                    display: inline-block;
+                    margin-top: 5px;
+                }
+
+                .quantity {
+                    width: 130px;
+
+                    input {
+                        color: black;
+                        font-size: 18px;
+                        text-align: center;
+                    }
+                }
+
+                .item-image {
+                    margin-top: 5px;
+                    max-width: 100%;
+                }
+            }
+
+            .list-header {
+                margin-bottom: 20px;
+                color: #909090;
+            }
+
+            .delivery-date-title, .pickup-date-title {
+                white-space: nowrap;
+            }
+        }
+
+        .appointment {
+            .container {
+                width: 80%;
+                padding: 30px;
+                border: 2px solid #bababa;
+                border-radius: 5px;
+                font-family: Montserrat, sans-serif;
+                font-size: 18px;
+            }
+
+            .promo-label:before {
+                content: "optional";
+                position: absolute;
+                top: -18px;
+                right: 10px;
+                color: #9999a3;
+                font-size: 18px;
+                font-weight: 300;
+            }
+        }
+
+        .billing {
+            margin-left: 40px;
+
+            h3 {
+                font-size: 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .total-container {
+            padding-left: 30px;
+
+            .total-appointment-errors {
+                margin-top: 15px;
+                text-align: center;
+
+                .total-appointment-message {
+                    line-height: 25px;
+                }
+
+                a.error-field-name {
+                    font-style: italic;
+                }
+            }
+        }
+
+        .total, .billing-total {
+            padding: 40px;
+            border-radius: 5px;
+            background-color: #edf6fe;
+            font-family: Montserrat, sans-serif;
+            font-size: 18px;
+
+            .total-price {
+                margin-top: 30px;
+
+                .price {
+                    font-size: 24px;
+                }
+            }
+
+            .rent-period {
+                margin-top: 30px;
+
+                .description, .length {
+                    font-size: 16px;
+                }
+            }
+
+            .next-button {
+                display: block;
+                margin: 40px auto 0;
+            }
+
+            p {
+                line-height: 20px;
+            }
+        }
+
+        .billing-total {
+            padding: 30px;
+
+            .total-title, .price {
+                font-size: 22px;
+                font-weight: bold;
+                line-height: 26px;
+            }
+
+            .checkout-button {
+                display: block;
+                margin: 20px auto 0;
+            }
+        }
+    }
+
+    .footer {
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+        .navigation {
+            margin-left: 30px;
+        }
+
+        .footer-info {
+            float: right;
+            margin-right: 50px;
+            font-family: Montserrat, sans-serif;
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 970px) {
+    .bs-wizard {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .ac-for-rent {
+        .content {
+            .title {
+                margin-left: 0;
+                margin-bottom: 20px;
+
+                .action {
+                    display: block;
+                    font-size: 32px;
+                    text-align: center;
+                }
+
+                .description {
+                    display: block;
+                    margin-left: 0;
+                    font-size: 15px;
+                    text-align: center;
+                }
+
+                .price-description, .review-description {
+                    display: block;
+                    text-align: center;
+                }
+            }
+
+            .total-container {
+                padding-left: 15px;
+            }
+
+            .total {
+                margin-top: 20px;
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+
+            .content-list {
+                padding: 10px;
+
+                .ac-item {
+                    .item-size {
+                        font-size: 16px;
+                    }
+
+                    .item-description {
+                        font-size: 12px;
+                    }
+
+                    .item-price {
+                        font-size: 16px;
+                    }
+
+                    .quantity {
+                        margin: 20px auto 20px auto;
+                    }
+
+                    .item-image {
+                        max-height: 80px;
+                    }
+                }
+
+                .delivery-time, .pickup-time {
+                    margin-top: 15px;
+                }
+
+                .delivery-date-title, .pickup-date-title {
+                    display: block;
+                    text-align: center;
+                }
+
+                .pickup-date-title {
+                    margin-top: 20px;
+                }
+            }
+
+            .appointment {
+                .container {
+                    width: 100% !important;
+                }
+
+                .promo-label {
+                    display: block;
+
+                    &:before {
+                        top: 0 !important;
+                    }
+                }
+
+                .apply-promo-button {
+                    margin-top: 10px;
+                }
+            }
+
+            .billing {
+                margin-left: 0;
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+
+            .footer-info {
+                display: block;
+                float: none;
+                margin: 40px 0 0 0;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .item-image-container {
+        text-align: center;
+    }
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "smbedroom",
+    "size": "5,000 BTU",
+    "description": "for 150 sq ft <br> (small bedroom)",
+    "image": "public/images/small-bedroom.png",
+    "price": 179,
+    "priceString": "$179 / 5 month"
+  },
+  {
+    "id": "mdbedroom",
+    "size": "6,000 BTU",
+    "description": "for 250 sq ft <br> (medium bedroom)",
+    "image": "public/images/medium-bedroom.png",
+    "price": 219,
+    "priceString": "$219 / 5 month"
+  },
+  {
+    "id": "lgbedroom",
+    "size": "8,000 BTU",
+    "description": "for 350 sq ft <br> (large bedroom)",
+    "image": "public/images/large-bedroom.png",
+    "price": 285,
+    "priceString": "$285 / 5 month"
+  },
+  {
+    "id": "mdroom",
+    "size": "10,000 BTU",
+    "description": "for 450 sq ft <br> (medium room)",
+    "image": "public/images/medium-room.png",
+    "price": 369,
+    "priceString": "$369 / 5 month"
+  },
+  {
+    "id": "lgroom",
+    "size": "12,000 BTU",
+    "description": "for 550 sq ft <br> (large room/studio)",
+    "image": "public/images/large-room.png",
+    "price": 429,
+    "priceString": "$429 / 5 month"
+  },
+  {
+    "id": "install",
+    "size": "Install My Own AC Unit",
+    "description": "Professional Installation of your own Window AC by our Experts.",
+    "price": 99,
+    "priceString": "$99 / Unit",
+    "customClass": "install-margin"
+  },
+  {
+    "id": "remove",
+    "size": "Remove My Own AC Unit",
+    "description": "Professional Removing of your own Window AC by our Experts.",
+    "price": 79,
+    "priceString": "$79 / Unit",
+    "customClass": "remove-margin"
+  },
+  {
+    "id": "remote",
+    "size": "A/C Remote",
+    "description": "Works with any A/C",
+    "image": "public/images/remote.png",
+    "price": 5,
+    "priceString": "$5"
+  }
+]

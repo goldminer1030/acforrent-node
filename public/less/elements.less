@@ -1,0 +1,58 @@
+.ac-button {
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: linear-gradient(to top, #1877c0 0%, #209bd0 100%);
+    background-color: #1c89c8;
+    font-size: 18px;
+    font-family: Monserrat, Verdana;
+
+    &:hover {
+        background: linear-gradient(to top, #166b9c 0%, #1d8dbd 100%);
+        background-color: #166b9c;
+    }
+
+    &[disabled] {
+        background: #eee;
+        color: #bbb;
+        box-shadow: 0 1px 5px rgba(158, 163, 169, 0.35);
+    }
+}
+
+.navigation {
+    display: inline-block;
+    font-family: Montserrat, sans-serif;
+    font-size: 20px;
+    line-height: 35px;
+
+    a {
+        margin-left: 20px;
+        color: #1c89c8;
+        text-decoration: underline;
+        letter-spacing: 1px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        @media (max-width: 970px) {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 767px) {
+            display: block;
+            margin-left: 0;
+        }
+    }
+
+    @media (max-width: 970px) {
+        margin-top: 20px;
+    }
+}
+
+.help-block {
+    font-size: 12px;
+}

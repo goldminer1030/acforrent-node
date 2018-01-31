@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "username": "lyasch",
+    "password": "89vD2pYvNKkvfzfN"
+  },
+
+  "database": {
+    "name": "ac-for-rent",
+    "username": "root",
+    "password": "Geka911@",
+
+    "options": {
+      "host": "127.0.0.1",
+      "dialect": "mysql",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+      }
+    }
+  },
+
+  "stripe": {
+    "public-key": "pk_live_VLsIsFaMSiwO3S4erXgCGyba",
+    "secret-key": "sk_live_Bv87WrLAEBb1eNiwPoLNiljX"
+  },
+
+  "mailer": {
+    "server": {
+      "host": "smtp.yandex.ru",
+      "port": 465,
+      "secure": true,
+      "auth": {
+        "user": "noreply@acforrent.com",
+        "pass": "Geka911@"
+      }
+    },
+
+    "options": {
+      "from": "'AC for Rent' <noreply@acforrent.com>",
+      "to": "fadil.mamedov@gmail.com",
+      "subject": "New order"
+    }
+  }
+}

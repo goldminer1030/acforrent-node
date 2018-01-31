@@ -1,0 +1,30 @@
+div.billing.col-md-8(style="display:none")
+    div.row
+        div.col-md-6
+            h3= "Contact information"
+            p.full-name
+            p.email
+            p.phone
+        div.col-md-6
+            h3= "Items summary"
+            div.billing-items-summary
+
+    div.row
+        div.col-md-6
+            h3= "Shipping address"
+            p.address
+            p.city
+            p.state
+            p.zip
+        div.col-md-6
+            h3= "Rentals info"
+            p.del-date= "Delivery Date"
+            p.pick-date= "Pick Up Date"
+
+    div.row
+        div.col-md-6.col-md-offset-6
+            div.billing-total
+                p.total-title= "Total"
+                p.price
+
+                button.ac-button.checkout-button= "Place Order"

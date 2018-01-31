@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>ACforRent Administration</title>
+
+        <link rel="stylesheet" href="public/libs/semantic-ui/semantic.min.css">
+        <link rel="stylesheet" href="public/css/admin.css"></link>
+    </head>
+    <body>
+        <div id="application">
+            <div class="ui menu">
+                <div class="header item">ACforRent Administration</div>
+            </div>
+
+            <div class="ui grid">
+                <div class="three wide column">
+                    <div class="main-menu">
+                        <div class="ui large fluid vertical pointing menu">
+                            <a href="#" class="item" :class="{ active: selectedMenu === 'acs' }" @click="setSelectedMenu('acs')"> Air Conditioners </a>
+                            <a href="#" class="item" :class="{ active: selectedMenu === 'promos' }" @click="setSelectedMenu('promos')"> Promo codes </a>
+                            <a href="#" class="item" :class="{ active: selectedMenu === 'orders' }" @click="setSelectedMenu('orders')"> Orders </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thirteen wide column">
+                    <div class="ui secondary segment">
+                        <div v-if="selectedMenu === 'acs'">
+                            <span class="ui blue ribbon label">Air Conditioners</span>
+
+                            <table class="ui celled table">
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Price</th>
+                                        <th>Price string</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in acs" class="ac-item">
+                                        <td class="size"> {{item.size}} </td>
+                                        <td v-html="item.description" class="description"></td>
+                                        <td class="image">
+                                            <img :src="item.image" v-if="item.image">
+                                            <i class="large red remove icon" v-else></i>
+                                        </td>
+                                        <td class="price">
+                                            <span class="ui blue tag label" style="height: 28px; letter-spacing: 1px">${{item.price}}</span>
+                                        </td>
+
+                                        <td class="price-string">
+                                            <span class="ui tag label" style="height: 28px">{{item.priceString}}</span>
+                                        </td>
+
+                                        <td class="controls">
+                                            <button class="ui icon button" @click="removeAC(item)" :class="{loading: ac.pendings.delete === item.id}">
+                                                <i class="remove icon"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <form class="create-new-promo ui form" style="margin-top: 30px">
+                                <h4 class="ui dividing header">Create new air conditioner item</h4>
+
+                                <div class="field">
+                                    <label>Size</label>
+                                    <input type="text" name="size" placeholder="Enter item size or name" v-model.trim="ac.size" style="width: 50%">
+
+                                    <div class="ui left pointing red basic label error-label" v-if="!acValid && ac.validations.size" style="margin-top: 4px">
+                                        {{ac.validations.size}}
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label>Description</label>
+                                    <input type="text" name="description" placeholder="Description" v-model.trim="ac.description">
+                                </div>
+
+                                <div class="field">
+                                    <label>Image URL (NOTE: you should upload the image to the source directory manually)</label>
+                                    <input type="text" name="image" placeholder="public/images/<image-name>.png" v-model.trim="ac.image">
+                                </div>
+
+                                <div class="field">
+                                    <label>Price (USD)</label>
+
+                                    <div class="ui labeled input" style="width: 50%">
+                                        <div class="ui label">$</div>
+                                        <input type="number" name="price" min="0" v-model="ac.price">
+                                    </div>
+
+                                    <div class="ui left pointing red basic label error-label" v-if="!acValid && ac.validations.price" style="margin-top: 4px">
+                                        {{ac.validations.price}}
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label>Price string</label>
+                                    <input type="text" name="priceString" placeholder="$99 / 5 month" v-model.trim="ac.priceString" style="width: 50%">
+                                </div>
+
+                                <div class="field">
+                                    <label>Period (months)</label>
+                                    <input type="number" name="time" min="0" max="12" v-model="ac.time" style="width: 50%">
+                                </div>
+
+                                <button class="ui primary button create-ac-button" type="submit"
+                                        @click.prevent="createAC" :class="{loading: ac.pendings.create}">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+
+                        <div v-if="selectedMenu === 'promos'">
+                            <span class="ui blue ribbon label">Promo codes</span>
+
+                            <table class="ui celled table">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Discount</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="p in promos" class="promo-item">
+                                    <td class="name"> {{p.name}} </td>
+                                    <td class="discount">
+                                        <span class="ui teal tag label">{{p.discount}} %</span>
+                                    </td>
+
+                                    <td class="controls">
+                                        <button class="ui icon button" @click="removePromo(p)" :class="{loading: promo.pendings.delete === p.id}">
+                                            <i class="remove icon"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <form class="create-new-promo ui form" style="margin-top: 30px">
+                                <h4 class="ui dividing header">Create new promo code</h4>
+
+                                <div class="field">
+                                    <label>Name</label>
+                                    <input type="text" name="name" placeholder="Promo name" v-model.trim="promo.name" style="width: 50%">
+
+                                    <transition name="slide-fade">
+                                        <div class="ui left pointing red basic label error-label" v-if="!promoValid && promo.validations.name" style="margin-top: 4px">
+                                            {{promo.validations.name}}
+                                        </div>
+                                    </transition>
+                                </div>
+
+                                <div class="field">
+                                    <label>Discount</label>
+
+                                    <div class="ui right labeled input" style="width: 50%">
+                                        <input type="number" name="discount" min="0" max="100" v-model="promo.discount">
+                                        <div class="ui basic label">%</div>
+                                    </div>
+
+                                    <transition name="slide-fade">
+                                        <div class="ui left pointing red basic label error-label" v-if="!promoValid && promo.validations.discount">
+                                            {{promo.validations.discount}}
+                                        </div>
+                                    </transition>
+                                </div>
+
+                                <button class="ui primary button create-promo-button" type="submit"
+                                        @click.prevent="createPromo" :class="{loading: promo.pendings.create}">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+
+                        <div v-if="selectedMenu === 'orders'">
+                            <span class="ui blue ribbon label">Orders</span>
+
+                            <table class="ui celled table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Creation date</th>
+                                        <th>Name</th>
+                                        <th>E-mail</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Commentary</th>
+                                        <th>Promo code</th>
+                                        <th>Delivery</th>
+                                        <th>Pick Up</th>
+                                        <th>Price</th>
+                                        <th>Price with discount</th>
+                                        <th>Items</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="o in orders" class="order-item" @click="selectedOrder = o" :class="{selected: selectedOrder === o}">
+                                        <td style="font-weight: bold; font-size: 16px"> {{o.id}} </td>
+                                        <td> {{new Date(o.created_at).toLocaleString()}} </td>
+                                        <td> {{o.firstName}} {{o.lastName}} </td>
+                                        <td> {{o.email}} </td>
+                                        <td> {{o.phone}} </td>
+                                        <td> {{o.address}}, {{o.city}}, {{o.state}}, {{o.zip}} </td>
+                                        <td> {{o.commentary}} </td>
+                                        <td style="text-align: center">
+                                            <span class="ui blue label" v-if="o.promo">{{o.promo}}</span>
+                                        </td>
+                                        <td> {{o.deliveryDate | date}} {{o.deliveryTime | time}} </td>
+                                        <td> {{o.pickupDate | date}} {{o.pickupTime | time}} </td>
+
+                                        <td style="text-align: center">
+                                            <span class="ui teal label">{{o.totalPrice | price}}</span>
+                                        </td>
+
+                                        <td style="text-align: center">
+                                            <span class="ui teal label">{{o.priceWithDiscount | price}}</span>
+                                        </td>
+                                        <td style="text-align: center; font-size: 18px; font-weight: bold"> {{o.items.length}} </td>
+
+                                        <td class="controls">
+                                            <button class="ui icon button" @click.stop="removeOrder(o)" :class="{loading: order.pendings.delete === o.id}">
+                                                <i class="remove icon"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="order-details" v-if="selectedOrder">
+                                <h4 class="ui dividing header">Order items</h4>
+
+                                <table class="ui celled table">
+                                    <thead>
+                                        <tr>
+                                            <th>Size</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="item in selectedOrder.items">
+                                            <td>{{item.size}}</td>
+                                            <td>{{item.quantity}}</td>
+                                            <td>{{item | priceString}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="public/libs/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="public/libs/semantic-ui/semantic.min.js"></script>
+        <script type="text/javascript" src="public/libs/vue.js"></script>
+        <script type="text/javascript" src="public/js/admin.js"></script>
+    </body>
+</html>
